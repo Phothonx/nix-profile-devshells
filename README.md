@@ -34,7 +34,7 @@ These devshells are made so they can also be referenced by profiles making them:
   
   Get this flake
   
-  ```TODO, template ?```
+  ```git clone https://github.com/Phothonx/nix-profile-devshells.git```
 
   Make sure the nixpkgs from the registry is the same as your system config
   
