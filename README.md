@@ -9,7 +9,7 @@ These devshells are made so they can also be referenced by profiles making them:
 
 ## Setup
 
-<details open>
+<details>
   <summary><b>Flake registry</b></summary>
   
   Add the this flake to your system flake inputs
@@ -29,12 +29,12 @@ These devshells are made so they can also be referenced by profiles making them:
 
 </details>
 
-<details open>
-  <summary><b>Get the flake</b></summary>
+<details>
+  <summary><b>Use the template</b></summary>
   
-  Get this flake
+  Get the template
   
-  ```git clone https://github.com/Phothonx/nix-profile-devshells.git```
+  ```nix flake init -t github:Phothonx/nix-profile-devshells```
 
   Make sure the nixpkgs from the registry is the same as your system config
   

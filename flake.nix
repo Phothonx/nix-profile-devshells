@@ -25,10 +25,14 @@
       };
   in
   {
-    # Packages used by devshells that you can choose to put in your profile
+    # Packages used by devshells that you can choose to install in your nix profile
     # to use them offline/prevent garbage collect
     packages = forEachSystem (pkgs: import ./packages { inherit pkgs lib; });
     # The devshells accessing these packages with the self argument
     devShells = forEachSystem (pkgs: import ./devshells { inherit self pkgs lib; });
+
+    templates.default = {
+      path = ./template;
+    };
   };
 }
