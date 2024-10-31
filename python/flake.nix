@@ -1,5 +1,5 @@
 {
-  description = "My personal deshells";
+  description = "Basic python devshell";
 
   inputs = {
     # should be declared in USER registry with the nixos option:
@@ -29,33 +29,12 @@
     # (pkgs -> attrsetValue) -> AttrsForEachSystems
     forEachSystem = f: lib.genAttrs systems (system: f (pkgsGen system));
   in {
-    formatter = forEachSystem (pkgs: pkgs.alejandra);
-
-    templates = {
-      python = {
-        path = ./python;
-        description = "Basic python devshell";
+    devShells = forEachSystem (pkgs: {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          python3
+        ];
       };
-
-      scipython = {
-        path = ./scipython;
-        description = "Python devshell for science";
-      };
-
-      jupython = {
-        path = ./jupython;
-        description = "Same as scipython but with jupyter";
-      };
-
-      ocaml = {
-        path = ./ocaml;
-        description = "Basic ocaml devshell";
-      };
-
-      C = {
-        path = ./C;
-        description = "Basic C devshell";
-      };
-    };
+    });
   };
 }
